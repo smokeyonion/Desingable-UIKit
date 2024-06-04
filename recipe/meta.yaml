@@ -2,8 +2,8 @@
 {% set version = "2.19.5" %}
 
 # dependencies
-{% set gds_base_version = "2.19.6" %}
-{% set gds_lsmp_version = "2.19.7" %}
+{% set gds_base_version = "2.19.8" %}
+{% set gds_lsmp_version = "2.19.8" %}
 
 package:
   name: {{ name|lower }}
