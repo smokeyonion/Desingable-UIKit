@@ -1,0 +1,27 @@
+From 6c06dbb263a1e18279eafdad2e3d4ef77b7ba799 Mon Sep 17 00:00:00 2001
+From: John Zweizig <john.zweizig@ligo.org>
+Date: Thu, 12 May 2022 21:46:14 +0100
+Subject: [PATCH] Dpush: Initializs vstream in MacOSX constructor
+
+---
+ lowlatency-tools/Dpush/Dpush.C | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/lowlatency-tools/Dpush/Dpush.C b/lowlatency-tools/Dpush/Dpush.C
+index d64f99b68..219851982 100644
+--- a/lowlatency-tools/Dpush/Dpush.C
++++ b/lowlatency-tools/Dpush/Dpush.C
+@@ -221,7 +221,11 @@ main(int argc, const char **argv) {
+ //
+ Dpush::Dpush(int argc, const char **argv)
+     : NDS(0), OPart(0), active(false), verbose(0), debug(false),
++#ifdef P__DARWIN
++      datacheck(true), timeset(false), rd(-1), vrd(-1), vstream(-1)
++#else
+       datacheck(true), timeset(false), rd(-1), vrd(-1)
++#endif
+ {
+     int   nbuf = 1, lbuf = 1000000, Secs=60;
+ 
+-- 
+GitLab

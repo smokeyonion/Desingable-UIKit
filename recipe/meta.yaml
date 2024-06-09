@@ -12,6 +12,8 @@ package:
 source:
   url: https://software.igwn.org/sources/source/{{ name }}-{{ version }}.tar.gz
   sha256: b321f8ce57d096bcb89ecedf85bdecf68dcb41e90e9c48890c4f494eda68c0fa
+  patches:
+    - dpush-vstream-macos.patch
 
 build:
   number: 0
