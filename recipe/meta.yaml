@@ -1,9 +1,9 @@
 {% set name = "gds-lowlatency-tools" %}
-{% set version = "2.19.4" %}
+{% set version = "2.19.5" %}
 
 # dependencies
-{% set gds_base_version = "2.19.6" %}
-{% set gds_lsmp_version = "2.19.7" %}
+{% set gds_base_version = "2.19.8" %}
+{% set gds_lsmp_version = "2.19.8" %}
 
 package:
   name: {{ name|lower }}
@@ -11,7 +11,9 @@ package:
 
 source:
   url: https://software.igwn.org/sources/source/{{ name }}-{{ version }}.tar.gz
-  sha256: bed821fb1626901e075ec9903078714829ec435b4361cac82aca095facf796ec
+  sha256: b321f8ce57d096bcb89ecedf85bdecf68dcb41e90e9c48890c4f494eda68c0fa
+  patches:
+    - dpush-vstream-macos.patch
 
 build:
   number: 0
